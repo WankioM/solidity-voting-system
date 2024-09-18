@@ -1,34 +1,35 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.24;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+contract CentralizedVoting is Ownable {
+    // Mapping to store registered voters
+    mapping(address => bool) public isRegistered;
 
-    event Withdrawal(uint amount, uint when);
+    // Mapping to store vote counts
+    mapping(address => uint256) public votes;
 
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
+    // Function to register a voter
+    function registerVoter(address voter) public onlyOwner {
+        // Check if the voter is already registered
+        require(!isRegistered[voter], "Voter is already registered");
 
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        // Register the voter
+        isRegistered[voter] = true;
     }
 
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
+    // Function to cast a vote
+    function castVote(address voter) public onlyOwner {
+        // Check if the voter is registered
+        require(isRegistered[voter], "Voter is not registered");
 
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+        // Increment the vote count for the voter
+        votes[voter]++;
+    }
 
-        emit Withdrawal(address(this).balance, block.timestamp);
-
-        owner.transfer(address(this).balance);
+    // Function to get the vote count for a voter
+    function getVoteCount(address voter) public view returns (uint256) {
+        return votes[voter];
     }
 }

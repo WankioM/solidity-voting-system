@@ -1,0 +1,137 @@
+/* Color Variables */
+:root {
+    --primary-color: #240115;
+    --secondary-color: #645E9D;
+    --background-color: #D7CDCC;
+    --highlight-color: #49BEAA;
+    --alert-color: #C8553D;
+    --text-color: #000; /* Black */
+    --text-light-color: #FFF; /* White */
+  }
+  
+  /* Link Styles */
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: var(--highlight-color);
+  }
+  
+  /* Paragraph Styles */
+  p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+  
+  /* Heading Styles */
+  h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  h2 {
+    color: var(--secondary-color);
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  
+  /* Button Styles */
+  .primary-button {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+    border: none;
+    border-radius: 4px;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .primary-button:hover {
+    background-color: var(--highlight-color);
+  }
+  
+  .secondary-button {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .secondary-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+  }
+  
+  /* Text Styles */
+  .bold-text {
+    font-weight: bold;
+  }
+  
+  /* Input Area Styles */
+  .input-area {
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    padding: 0.5em;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--text-light-color);
+    width: 100%;
+  }
+  
+  .input-area:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+  }
+  
+  /* Popup Box Styles */
+  .popup-box {
+    background-color: var(--text-light-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .popup-box .popup-header {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+  }
+  
+  .popup-box .popup-content {
+    font-size: 1em;
+  }
+  
+  /* Navbar Styles */
+  .nav-bar {
+    background-color: var(--primary-color);
+    color: var(--text-light-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+  }
+  
+  .nav-bar .nav-item {
+    color: var(--text-light-color);
+    text-decoration: none;
+    margin: 0 1em;
+  }
+  
+  .nav-bar .nav-item:hover {
+    text-decoration: underline;
+  }
+  

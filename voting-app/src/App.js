@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import WalletConnect from './components/WalletConnect';
 import RegisterVoter from './components/RegisterVoter';
 import VoteCasting from './components/VoteCasting';
-import ResultsDisplay from './components/ResultsDisplay';
+import ResultDisplay from './components/ResultDisplay';
 import ErrorHandling from './components/ErrorHandling';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <>
           <RegisterVoter walletAddress={walletAddress} />
           <VoteCasting walletAddress={walletAddress} />
-          <ResultsDisplay />
+          <ResultDisplay />
         </>
       )}
       <ErrorHandling />

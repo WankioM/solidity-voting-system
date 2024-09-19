@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract CentralizedVoting is Ownable {
     // Mapping to store registered voters
@@ -10,6 +10,18 @@ contract CentralizedVoting is Ownable {
     // Mapping to store vote counts
     mapping(address => uint256) public votes;
 
+    // Array to store the list of registered voters
+    address[] public voterList;
+
+    // Event emitted when a voter is registered
+    event VoterRegistered(address indexed voter);
+
+    // Event emitted when a vote is cast
+    event VoteCast(address indexed voter);
+
+    // Constructor takes an initialOwner argument
+    constructor(address initialOwner) Ownable(initialOwner) {}
+
     // Function to register a voter
     function registerVoter(address voter) public onlyOwner {
         // Check if the voter is already registered
@@ -17,15 +29,23 @@ contract CentralizedVoting is Ownable {
 
         // Register the voter
         isRegistered[voter] = true;
+        voterList.push(voter);  // Add voter to voterList
+        emit VoterRegistered(voter);
+    }
+
+    // Function to get the list of registered voters
+    function getVoters() public view returns (address[] memory) {
+        return voterList;
     }
 
     // Function to cast a vote
-    function castVote(address voter) public onlyOwner {
+    function castVote() public {
         // Check if the voter is registered
-        require(isRegistered[voter], "Voter is not registered");
+        require(isRegistered[msg.sender], "Voter is not registered");
 
-        // Increment the vote count for the voter
-        votes[voter]++;
+        // Increment the vote count for the caller
+        votes[msg.sender]++;
+        emit VoteCast(msg.sender);
     }
 
     // Function to get the vote count for a voter

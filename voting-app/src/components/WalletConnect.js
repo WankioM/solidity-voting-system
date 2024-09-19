@@ -1,5 +1,6 @@
 import React from 'react';
 import Web3 from 'web3';
+import '../styles.css'; // Import your CSS
 
 function WalletConnect({ setWalletAddress }) {
   const connectWallet = async () => {
@@ -14,7 +15,9 @@ function WalletConnect({ setWalletAddress }) {
   };
 
   return (
-    <button onClick={connectWallet}>Connect Wallet</button>
+    <button onClick={connectWallet} className="primary-button">
+      Connect Wallet
+    </button>
   );
 }
 

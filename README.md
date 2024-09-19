@@ -1,26 +1,32 @@
-# Sample Hardhat Project
+# Centralized Voting System
 
-Centralized Voting:  voters don't need to connect their wallets directly. Their votes are recorded on the blockchain by the project owner or a trusted entity. This simplifies the voting process for users but introduces a single point of trust.
+This project demonstrates a **Centralized Voting System** where voters don't need to connect their wallets directly. Instead, their votes are recorded on the blockchain by the project owner or a trusted entity, simplifying the process for users. However, this introduces a single point of trust.
 
- Solidity Contract:
-Voter Registration: Create a function to allow the project owner to register voters.
-Voting: Implement a function for the project owner to cast votes on behalf of registered voters.
-Result Retrieval: Provide a function to retrieve the current voting results.
+## Overview
 
-React Frontend:
-User Interface: An interface where users can register to vote.
-Data Submission: A user registers, submit their details to the project owner.
-Result Display: Fetch and display the current voting results from the contract.
+### Features
+- **Voter Registration:** The project owner registers voters using the provided smart contract.
+- **Voting:** The project owner casts votes on behalf of the registered voters.
+- **Result Retrieval:** The current voting results are stored on-chain and can be retrieved by the project owner or users.
 
+### Technology Stack
+- **Solidity** for the smart contracts.
+- **React** for the frontend user interface.
+- **Hardhat** for compiling, deploying, and testing the smart contracts.
+- **MetaMask** or **Coinbase Wallet** for user interaction with the blockchain.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+## Prerequisites
 
-Try running some of the following tasks:
+Make sure you have the following installed:
+- **Node.js** (version >= 14)
+- **npm** or **yarn**
+- **MetaMask** browser extension (for testing on localhost or any live network)
+- **Hardhat**
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/voting-app.git
+cd voting-app
